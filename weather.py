@@ -47,3 +47,10 @@ if unit == "Celsius":
 else:
     temp_unit = " °F"
     temp_conversion = lambda kelvin: round(((kelvin - 273.15) * 1.8) + 32, 2)
+
+api = "82a3c62eb946e26e84efd9f2cf475970"
+
+if st.button("SUBMIT") and lat is not None and lon is not None:
+    url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api}'
+    res = requests.get(url)
+    y = res.json()
